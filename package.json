@@ -1,0 +1,26 @@
+{
+  "name": "Lab01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shubham-401n16/Lab01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shubham-401n16/Lab01/issues"
+  },
+  "homepage": "https://github.com/Shubham-401n16/Lab01#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}
