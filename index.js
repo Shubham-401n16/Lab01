@@ -1,10 +1,18 @@
-/* eslint-disable indent */
 'use strict';
-const input = require('./lib/input.js');
-const notes = require('./lib/notes.js');
 
-if (input.validateInput.payload) console.log('Valid input');
-else console.log('Error');
+/* 
+    - Requires the library files you will be writing (input, notes) DONE 
+    - Instantiates an “Input” parser (??)
+    - Sends properly parsed input to the Notes library for display (notes module??)
+ */
 
-// eslint-disable-next-line no-console
-console.log(notes(input));
+// const a = require('./lib/input.js);
+// a(process.argv.splice(2));
+
+const Input = require('./lib/input.js');
+const Notes = require('./lib/notes.js');
+
+
+let parsedInput = new Input(process.argv.slice(2));
+
+let notes = new Notes(parsedInput);

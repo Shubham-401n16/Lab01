@@ -1,16 +1,17 @@
 'use strict';
-
-const input = require('../lib/input.js');
+const Input = require('../lib/input.js');
 
 describe('Input validation', () => {
     it('validate invalid flag', () =>{
         const invalidFlag = ['-w','This is a test'];
-        expect(input(invalidFlag)).toThrowError('Invalid Input');
+        let result = new Input(invalidFlag)
+        expect(result).toThrowError('Invalid Input');
 
     })
     it('validate no text', () =>{
         const invalidFlag = ['-a'];
-        expect(input(invalidFlag)).toThrowError('Invalid Input');
+        let result = new Input(invalidFlag)
+        expect(result).toThrowError('Invalid Input');
 
     });
 });
@@ -18,7 +19,8 @@ describe('Input validation', () => {
 describe('Input validation', () => {
     it('valid test', () =>{
         const validFlag = ['-a','This is a test'];
-        expect(input(invalidFlag)).toEqual(
+        let result = new Input(invalidFlag)
+        expect(result).toEqual(
             {
                 action: 'add',
                 payload: validFlag[1],
@@ -26,4 +28,41 @@ describe('Input validation', () => {
         );
 
     })
+});
+
+
+const badInputA = [];
+const badInputB = ['WRONG'];
+const badInputC = ['-b', 'WRONG'];
+const badInputD = ['-a', ''];
+const goodInput = ['-a', 'This is a note!'];
+
+describe('the module handles bad input gracefully', () => {
+    it('handles empty input', () => {
+        let result = new Input(badInputA);
+
+        expect(result.valid()).toBeFalsy();
+    });
+
+    it('handles wrong input', () => {
+        let result = new Input(badInputB);
+        expect(result.valid()).toBeFalsy();
+    });
+
+    it('handles wrong flag', () => {
+        let result = new Input(badInputC);
+        expect(result.valid()).toBeFalsy();
+    });
+
+    it('handles wrong data type', () => {
+        let result = new Input(badInputD);
+        expect(result.valid()).toBeFalsy();
+    });
+});
+
+describe('the module handles good input gracefully', () => {
+    it('handles good input for -a flag', () => {
+        let result = new Input(goodInput);
+        expect(result.valid()).toBeTruthy();
+    });
 });
