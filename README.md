@@ -5,7 +5,7 @@
 ### Author: Shubham Majumdar
 
 ### Links and Resources
-* [submission PR](https://github.com/Shubham-401n16/Lab01/pull/1)
+* [submission PR](https://github.com/Shubham-401n16/Lab01/pull/2)
 * [Github Actions](https://github.com/Shubham-401n16/Lab01/actions)
 
 #### Documentation
