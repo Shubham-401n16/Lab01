@@ -1,6 +1,9 @@
 'use strict';
 
 const Notes = require('../lib/notes.js');
+const Input = require('../lib/input.js');
+const minimist = require('minimist')
+
  describe('Validate Notes',() => {
      it('Test if add is working', ()=>{
          let note = new Notes({action:'add', payload: 'text'});
@@ -10,7 +13,7 @@ const Notes = require('../lib/notes.js');
              payload: 'This is a test'
          };
          note(testObj);
-         expet(console.log).toHaveBeenCalled();
+         expect(console.log).toHaveBeenCalled();
      });
 
      it('Test if add is working', ()=>{
@@ -21,6 +24,6 @@ const Notes = require('../lib/notes.js');
             payload: 'This is a test'
         };
         note(testObj);
-        expet(console.log).not.toHaveBeenCalled();
+        expect(console.log).not.toHaveBeenCalled();
     });
  });
